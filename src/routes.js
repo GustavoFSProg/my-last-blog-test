@@ -19,7 +19,7 @@ routes.put('/likes/:id', postController.updateLikes)
 routes.put('/views/:id', postController.updateViews)
 routes.delete('/del/:id', postController.deleted)
 
-routes.post('/comments/:id', commentsController.comments)
-routes.get('/commentsGetAll', commentsController.getAllComments)
+// routes.post('/comments/:id', commentsController.comments)
+// routes.get('/commentsGetAll', commentsController.getAllComments)
 
 export default routes
