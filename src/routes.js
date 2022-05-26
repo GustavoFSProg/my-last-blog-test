@@ -8,11 +8,11 @@ const upload = multer(uploadConfig)
 
 const routes = Router()
 
-// routes.get('/', (req, res) => {
-//   return res.status(200).send({ msg: 'API version 1.0' })
-// })
+routes.get('/', (req, res) => {
+  return res.status(200).send({ msg: 'API version 1.0' })
+})
 
-routes.get('/', postController.getAll)
+routes.get('/get-all', postController.getAll)
 routes.post('/register', upload.single('image'), postController.register)
 routes.put('/update/:id', upload.single('image'), postController.update)
 routes.put('/likes/:id', postController.updateLikes)
