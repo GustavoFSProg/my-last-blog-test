@@ -1,7 +1,7 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "@prisma/client": "3.14.0",
@@ -23,10 +23,8 @@
     "eslint-plugin-import": "^2.25.2"
   },
   "scripts": {
-    "test": "jest",
     "dev": "NODE_ENV=development nodemon --exec babel-node src/index.js",
-    "start": "NODE_ENV=production node dist",
-    "build": "babel src -d dist",
-    "lint": "eslint --ext .js --ignore-path .gitignore ."
+    "start": "NODE_ENV=production node dist/index.js",
+    "build": "babel src -d dist"
   }
 }
