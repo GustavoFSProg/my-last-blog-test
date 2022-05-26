@@ -9,7 +9,7 @@ const upload = multer(uploadConfig)
 const routes = Router()
 
 routes.get('/', (req, res) => {
-  return res.send({ msg: 'API version 1.0' })
+  return res.status(200).send({ msg: 'API version 1.0' })
 })
 routes.get('/get-all', postController.getAll)
 routes.post('/register', upload.single('image'), postController.register)
