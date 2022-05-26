@@ -13,6 +13,7 @@ routes.get('/', (req, res) => {
 })
 
 routes.get('/get-all', postController.getAll)
+routes.get('/get-post/:id', postController.getPost)
 routes.post('/register', upload.single('image'), postController.register)
 routes.put('/update/:id', upload.single('image'), postController.update)
 routes.put('/likes/:id', postController.updateLikes)

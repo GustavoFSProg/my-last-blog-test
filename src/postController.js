@@ -118,7 +118,7 @@ async function updateViews(req, res) {
 
 async function getAll(req, res) {
   try {
-    const number = 2
+    const number = 4
 
     // const { number } = req.params
 
@@ -147,4 +147,23 @@ async function deleted(req, res) {
   }
 }
 
-export default { getAll, updateViews, updateLikes, deleted, update, register }
+async function getPost(req, res) {
+  try {
+    const data = await prisma.posts.findFirst({
+      where: { id: req.params.id },
+    })
+    return res.status(200).send(data)
+  } catch (error) {
+    return res.status(400).send({ message: 'ERROR no controller getPost!' })
+  }
+}
+
+export default {
+  getAll,
+  getPost,
+  updateViews,
+  updateLikes,
+  deleted,
+  update,
+  register,
+}
