@@ -29,4 +29,16 @@ async function getAllComments(req, res) {
   }
 }
 
-export default { comments, getAllComments }
+async function getComment(req, res) {
+  try {
+    const comments = await prisma.comments.findFirst({
+      where: { post_id: req.params.id },
+    })
+
+    return res.status(201).send({ comments })
+  } catch (error) {
+    return res.status(400).send({ msg: 'Error', error })
+  }
+}
+
+export default { comments, getAllComments, getComment }

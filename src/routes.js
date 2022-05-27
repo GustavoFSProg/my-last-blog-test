@@ -22,5 +22,6 @@ routes.delete('/del/:id', postController.deleted)
 
 routes.post('/comments/:id', commentsController.comments)
 routes.get('/commentsGetAll', commentsController.getAllComments)
+routes.get('/get-comments/:id', commentsController.getComment)
 
 export default routes
