@@ -35,7 +35,7 @@ async function getComment(req, res) {
       where: { post_id: req.params.id },
     })
 
-    return res.status(201).send({ comments })
+    return res.status(201).send(comments)
   } catch (error) {
     return res.status(400).send({ msg: 'Error', error })
   }
