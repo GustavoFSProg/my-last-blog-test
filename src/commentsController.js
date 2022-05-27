@@ -29,16 +29,20 @@ async function getAllComments(req, res) {
   }
 }
 
-async function getComment(req, res) {
+async function getOneComents(req, res) {
   try {
-    const comments = await prisma.comments.findFirst({
-      where: { post_id: req.params.id },
-    })
+    const { id } = req.params
 
-    return res.status(201).send(comments)
+    const data = await prisma.comments.findMany({
+      where: { post_id: id },
+      orderBy: {
+        createdAt: 'desc',
+      },
+    })
+    return res.status(200).send(data)
   } catch (error) {
-    return res.status(400).send({ msg: 'Error', error })
+    return res.status(400).send({ message: 'DEU ERRO!' })
   }
 }
 
-export default { comments, getAllComments, getComment }
+export default { comments, getAllComments, getOneComents }
